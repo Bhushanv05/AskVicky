@@ -5,8 +5,7 @@
   "build": {
     "preview": {
       "android": {
-        "buildType": "apk",
-        "artifactPath": "AskVicky-v1.0.apk"
+        "buildType": "apk"
       }
     }
   }
