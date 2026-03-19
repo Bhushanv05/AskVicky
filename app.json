@@ -7,17 +7,21 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#0a0f0a"
     },
     "android": {
-      "package": "com.bhushanv05.askvicky"
+      "package": "com.bhushanv05.askvicky",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0f0a"
+      }
     },
     "updates": {
       "enabled": true,
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/YOUR_PROJECT_ID"
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 3000,
+      "url": "https://u.expo.dev/7877706a-b6a9-4a6a-92ea-5553dfd0fbe2"
     },
     "runtimeVersion": {
       "policy": "appVersion"

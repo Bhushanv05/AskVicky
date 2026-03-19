@@ -1,3 +1,4 @@
+import * as Updates from 'expo-updates';
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity, FlatList,
@@ -127,9 +128,19 @@ export default function App() {
   const fadeAnim    = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true }).start();
-    loadRecents();
-  }, []);
+  async function checkUpdate() {
+    try {
+      const update = await Updates.checkForUpdateAsync();
+      if (update.isAvailable) {
+        await Updates.fetchUpdateAsync();
+        await Updates.reloadAsync();
+      }
+    } catch (e) {}
+  }
+  checkUpdate();
+  Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true }).start();
+  loadRecents();
+}, []);
 
   useEffect(() => {
     if (messages.length > 0) {
@@ -348,6 +359,17 @@ export default function App() {
         <TouchableOpacity style={styles.clearBtn} onPress={clearHistory}>
           <Text style={styles.clearBtnText}>Clear</Text>
         </TouchableOpacity>
+        <Image
+            source={require('./assets/vicky.jpg')}
+                style={{
+                       width: 36,
+                       height: 36,
+                       borderRadius: 8,
+                       borderWidth: 2,
+                       borderColor: '#22c55e',
+                      marginLeft: 4,
+                     }}
+         />
       </View>
 
       {/* Quick Chips */}
@@ -430,6 +452,7 @@ export default function App() {
               <Text style={{ fontSize: 16, color: C.bg, fontWeight: '700' }}>➤</Text>
             </TouchableOpacity>
           </View>
+          <Text style={[styles.inputHint, { color: '#22c55e', marginBottom: 2 }]}>Built with 💚 by Bhushan</Text>
           <Text style={styles.inputHint}>Powered by Groq AI · Llama 3.3 · Chat history saved ✅</Text>
         </View>
       </KeyboardAvoidingView>
