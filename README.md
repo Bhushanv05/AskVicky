@@ -19,7 +19,7 @@
 
 ## 📱 Download APK
 
-👉 **[Download AskVicky Latest APK](https://expo.dev/artifacts/eas/b119C52Cgc1zBVuW72wuWS.apk)**
+👉 **[Download AskVicky Latest APK](https://expo.dev/artifacts/eas/79PHDCJjgZ8u3nGeXeXVFu.apk)**
 
 > Install directly on any Android phone — no Play Store needed!
 
